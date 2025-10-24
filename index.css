@@ -7,18 +7,42 @@
 }
 
 body {
-  background: #F9FAFB;
-  color: #333;
+  background-color: #0A0E2A; /* Deeper blue for consistency */
+  color: #EDEDED; /* Soft white for readability */
   scroll-behavior: smooth;
 }
 
 /* ===== NAVBAR ===== */
+/* Logo styling */
+.nav-logo {
+  height: 50px;       /* slightly bigger than before */
+  width: 50px;        /* make it square for circular effect */
+  border-radius: 50%; /* makes it circular */
+  object-fit: cover;  /* ensures the image fills the circle without distortion */
+  display: block;
+}
+
+/* Vertically center logo */
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* space between logo and nav links */
+}
+
+
+/* Adjust nav-links spacing from logo */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin-left: 20px; /* space between logo and links */
+}
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: #fff;
+  background: #FFFFFF;
   height: 60px;
   display: flex;
   align-items: center;
@@ -43,13 +67,29 @@ body {
 
 .nav-links li a {
   text-decoration: none;
-  color: #333;
+  color: #101230;
   font-weight: 600;
+  position: relative;
   transition: 0.3s;
 }
 
 .nav-links li a:hover {
   color: #FBD34D;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: #FBD34D;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
 }
 
 /* Hamburger for mobile */
@@ -62,12 +102,72 @@ body {
 .hamburger div {
   width: 25px;
   height: 3px;
-  background: #333;
+  background: #101230;
 }
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #0A0E2A; /* Deep blue navbar */
+  height: 60px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #EDEDED; /* Soft white text for visibility */
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #FBD34D; /* Yellowish hover */
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: #FBD34D;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger for mobile */
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: #EDEDED; /* Matches text color */
+}
+
 
 /* ===== SECTIONS ===== */
 section {
   padding: 100px 20px 60px;
+}
+
+/* ===== HEADER ===== */
+/* Offset sections for fixed navbar */
+section {
+  padding-top: 120px; /* original section padding */
+}
+
+#home {
+  scroll-margin-top: 70px; /* ensures smooth scroll doesn’t hide content behind navbar */
+  padding-top: 10
+px; /* adjust if navbar height changes */
 }
 
 header {
@@ -76,7 +176,7 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, #fff, #fdf5e6);
+  background-color: #0A0E2A;
 }
 
 header h1 {
@@ -87,20 +187,22 @@ header h1 {
 
 header p {
   font-size: 1.2rem;
+  color: #EDEDED;
   margin-bottom: 30px;
 }
 
 .hero-btn {
   text-decoration: none;
   background: #FBD34D;
-  color: #333;
+  color: #101230;
   padding: 12px 25px;
   border-radius: 8px;
   font-weight: 600;
   transition: 0.3s;
 }
 .hero-btn:hover {
-  background: #fce276;
+  background: #ffdf70;
+  transform: translateY(-2px);
 }
 
 /* ===== CARDS GRID ===== */
@@ -112,11 +214,12 @@ header p {
 }
 
 .card {
-  background: #fff;
+  background: #121539;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   text-align: center;
+  color: #EDEDED;
 }
 
 .card h3 {
@@ -126,7 +229,7 @@ header p {
 
 .card p {
   font-size: 0.95rem;
-  color: #555;
+  color: #CCC;
 }
 
 /* ===== FORM ===== */
@@ -140,13 +243,15 @@ form {
 
 form input {
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
+  background: #0A0E2A;
+  color: #EDEDED;
   border-radius: 8px;
 }
 
 form button {
   background: #FBD34D;
-  color: #333;
+  color: #101230;
   padding: 12px;
   border: none;
   border-radius: 8px;
@@ -156,7 +261,8 @@ form button {
 }
 
 form button:hover {
-  background: #fce276;
+  background: #ffdf70;
+  transform: scale(1.02);
 }
 
 /* ===== SOCIAL ICONS ===== */
@@ -168,16 +274,64 @@ form button:hover {
 }
 
 .social-icons a:hover {
-  color: #fce276;
+  color: #ffdf70;
+  transform: scale(1.1);
 }
 
-/* ===== FOOTER ===== */
-footer, .credit {
-  text-align: center;
-  margin-top: 40px;
-  color: #555;
-  font-size: 0.9rem;
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  padding: 120px 20px 80px;
+  background: #0A0E2A;
+  color: #EDEDED;
 }
+
+.about-section .container {
+  max-width: 1000px;
+  margin: auto;
+  line-height: 1.7;
+}
+
+.about-section h1 {
+  text-align: center;
+  color: #FBD34D;
+  margin-bottom: 20px;
+}
+
+.about-section h2 {
+  color: #ffdf70;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-left: 5px solid #FBD34D;
+  padding-left: 10px;
+}
+
+.about-section ul li {
+  background: #121539;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== INSPIRATION ===== */
+.inspiration {
+  margin-top: 60px;
+  background: #121539;
+  border-left: 5px solid #FBD34D;
+  padding: 20px;
+  border-radius: 8px;
+  font-style: italic;
+  color: #EDEDED;
+}
+/* ===== FOOTER ===== */
+.footer {
+  background: #0A0E2A;  /* deep blue matching navbar */
+  color: #FBD34D;       /* yellowish text for contrast */
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+
 
 /* ===== MEDIA QUERIES ===== */
 @media (max-width: 768px) {
@@ -187,10 +341,10 @@ footer, .credit {
     top: 60px;
     right: 0;
     flex-direction: column;
-    background: #fff;
+    background: #0A0E2A; /* match navbar color */
     width: 200px;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   }
   .nav-links.active {
     display: flex;
@@ -198,4 +352,52 @@ footer, .credit {
   .hamburger {
     display: flex;
   }
+  .hamburger div {
+    background: #EDEDED; /* ensure bars are visible */
+  }
 }
+/*Registration form CSS*/
+/* Container for forms when inline */
+.form-wrapper {
+  display: flex;
+  gap: 20px; /* space between forms */
+  justify-content: center;
+}
+
+/* Each form inside wrapper takes equal space */
+.form-wrapper .form {
+  flex: 1;
+  max-width: 400px;
+}
+/*centering the paragraph and buttons*/
+.form-container,.registration{
+  text-align: center;
+  margin-top: 3rem;
+  color: #FBD34D; 
+}
+/* form starting below the navbar*/
+.form-container{
+  padding-top:70px;
+}
+/* By default, hide forms stacked (mobile-first) */
+.form-wrapper .form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tabs will still switch visibility */
+.form-wrapper .form:not(.active) {
+  display: none;
+}
+
+/* Media query for large screens */
+@media (min-width: 992px) {
+  .form-wrapper {
+    flex-direction: row;
+  }
+
+  .form-wrapper .form {
+    display: flex; /* show inline if active */
+  }
+}
+/* End of Registration form CSS */

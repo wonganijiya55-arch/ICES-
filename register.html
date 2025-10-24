@@ -7,11 +7,13 @@
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
- <!-- ===== NAVBAR ===== -->
+  <!-- ===== NAVBAR ===== -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="#home" class="logo">CESociety</a>
-       <ul class="nav-links">
+      <a href="index.html" class="logo">
+        <img src="images/IMG-20251024-WA0002.jpg" alt="CESociety Logo" class="nav-logo">
+      </a>
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="departments.html">Departments</a></li>
@@ -27,7 +29,8 @@
       </div>
     </div>
   </nav>
-  <!--registration form-->
+
+  <!-- ===== REGISTRATION FORM ===== -->
   <section class="form-container">
     <h2>Join the Civil Engineering Society</h2>
 
@@ -37,28 +40,30 @@
       <button class="tab-btn" id="adminTab">Admin</button>
     </div>
 
-    <!-- Student Form -->
-    <form id="studentForm" class="form active">
-      <input type="text" placeholder="Full Name" required />
-      <input type="text" placeholder="Registration Number" required />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <input type="text" placeholder="Year of Study" required />
-      <button type="submit" class="btn">Register as Student</button>
-    </form>
+    <!-- Forms Wrapper for responsive inline layout -->
+    <div class="form-wrapper">
+      <!-- Student Form -->
+      <form id="studentForm" class="form active">
+        <input type="text" placeholder="Full Name" required />
+        <input type="text" placeholder="Registration Number" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <input type="text" placeholder="Year of Study" required />
+        <button type="submit" class="btn">Register as Student</button>
+      </form>
 
-    <!-- Admin Form -->
-    <form id="adminForm" class="form">
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <input type="text" placeholder="Admin Access Code" required />
-      <button type="submit" class="btn">Register as Admin</button>
-    </form>
+      <!-- Admin Form -->
+      <form id="adminForm" class="form">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <input type="text" placeholder="Admin Access Code" required />
+        <button type="submit" class="btn">Register as Admin</button>
+      </form>
+    </div>
 
     <p>Already have an account? <a href="login.html">Login here</a></p>
   </section>
-
-  <script src="index.js"></script>
+  <script src="index.js" defer></script>
 </body>
 </html>
